@@ -1,0 +1,70 @@
+.App {
+  padding: 30px;
+  display: flex;
+}
+
+.App > div {
+  margin-right: 50px;
+}
+.todolist {
+  border: 2px solid teal;
+  background-color: darkseagreen;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.task {
+  font-weight: bold;
+  margin-left: 5px;
+}
+.task-isDone {
+  font-weight: normal;
+  margin-left: 5px;
+  text-decoration: line-through;
+}
+.filter-btn {
+  border: none;
+  border-radius: 3px;
+  padding: 3px 10px;
+}
+.filter-btn-active {
+  background-color: coral;
+  color: white;
+}
+.filter-btn-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 0;
+}
+h2 {
+  text-align: center;
+}
+.input-error {
+  border: 2px solid red;
+  outline: none;
+}
+
+.todoList-header{
+  display: flex;
+  /*padding: 20px 0;/*/
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+.add_form{
+  border: 2px solid teal;
+  background-color: darkseagreen;
+  border-radius: 5px;
+  padding: 15px;
+  max-height: 50px;
+}
+
