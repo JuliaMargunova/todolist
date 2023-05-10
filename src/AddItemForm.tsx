@@ -1,11 +1,13 @@
 import React, {ChangeEvent, FC, KeyboardEvent, useState} from 'react';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import {Button, IconButton, TextField} from "@mui/material";
 
-type AddItemPropsType={
-    titleMaxLength:number
-    addItem:(title:string)=>void
+type AddItemPropsType = {
+    titleMaxLength: number
+    addItem: (title: string) => void
 }
 
-const AddItemForm : FC<AddItemPropsType> = ({titleMaxLength,addItem}) => {
+const AddItemForm: FC<AddItemPropsType> = ({titleMaxLength, addItem}) => {
     const [title, setTitle] = useState<string>("")
     const [error, setError] = useState<boolean>(false)
     const setTitleHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -14,7 +16,7 @@ const AddItemForm : FC<AddItemPropsType> = ({titleMaxLength,addItem}) => {
     }
     const addItemHandler = () => {
         const trimmedTitle = title.trim()
-        if(trimmedTitle){
+        if (trimmedTitle) {
             addItem(trimmedTitle)
         } else {
             setError(true)
@@ -26,26 +28,30 @@ const AddItemForm : FC<AddItemPropsType> = ({titleMaxLength,addItem}) => {
     const titleMaxLengthWarning = isTitleLengthTooLong
         ? <div style={{color: "red"}}>Title is too long!</div>
         : null
-    const userMessage = error
-        ? <div style={{color: "red"}}>Title is required!</div>
-        : null
+    const userMessage = error && "Title is required!"
+
     const inputClasses = error || isTitleLengthTooLong ? "input-error" : undefined
     const addTaskOnKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => e.key === "Enter" && !isAddBtnDisabled && addItemHandler()
     return (
         <div className={'add_form'}>
-            <input
-                placeholder="Please, enter title"
+            <TextField
+                size="small"
+                placeholder="Enter item title, please"
                 value={title}
                 onChange={setTitleHandler}
                 //ref={taskTitleInput}
                 onKeyDown={addTaskOnKeyPressHandler}
-                className={inputClasses}
+                error={error}
+                helperText={userMessage}
+                //className={inputClasses}
             />
-            <button
+            <IconButton
+                size="small"
                 disabled={isAddBtnDisabled}
-                onClick={addItemHandler}
-            >+</button>
-            {titleMaxLengthWarning || userMessage}
+                onClick={addItemHandler}>
+                <AddBoxIcon/>
+            </IconButton>
+            {titleMaxLengthWarning}
         </div>
     );
 };

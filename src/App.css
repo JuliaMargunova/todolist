@@ -1,14 +1,15 @@
-.App {
+/*.App {
   padding: 30px;
   display: flex;
 }
 
 .App > div {
   margin-right: 50px;
-}
+}*/
 .todolist {
+  width: 300px;
   border: 2px solid teal;
-  background-color: darkseagreen;
+  /*background-color: darkseagreen;*/
   border-radius: 5px;
   padding: 15px;
 }
@@ -17,36 +18,44 @@
   font-weight: bold;
   margin-left: 5px;
 }
+
 .task-isDone {
   font-weight: normal;
   margin-left: 5px;
   text-decoration: line-through;
 }
+
 .filter-btn {
   border: none;
   border-radius: 3px;
   padding: 3px 10px;
 }
+
 .filter-btn-active {
   background-color: coral;
   color: white;
 }
+
 .filter-btn-wrapper {
   display: flex;
   justify-content: space-between;
 }
+
 ul {
   list-style: none;
   padding: 0;
 }
+
 li {
   display: flex;
   justify-content: space-between;
   padding: 2px 0;
 }
+
 h2 {
   text-align: center;
 }
+
 .input-error {
   border: 2px solid red;
   outline: none;
@@ -61,10 +70,13 @@ h2 {
 }
 
 .add_form{
-  border: 2px solid teal;
-  background-color: darkseagreen;
-  border-radius: 5px;
-  padding: 15px;
-  max-height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.btn-filter-container{
+  display: flex;
+  justify-content: space-between;
 }
 

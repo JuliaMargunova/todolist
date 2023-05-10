@@ -1,4 +1,5 @@
 import React, {ChangeEvent, useReducer, useState} from 'react';
+import {TextField} from "@mui/material";
 
 type EditablePropsType={
     title:string
@@ -19,7 +20,9 @@ const EditableSpan:React.FC<EditablePropsType> = ({title,classes,changeTitle}) =
 
     return (
         isEditMode
-        ?<input
+        ?<TextField
+            variant="standard"
+            size={"small"}
             autoFocus
             onBlur={offEditMode}
             value={localTitle}
